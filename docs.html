@@ -1,0 +1,390 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2021-10-04 Mon 23:43 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>&lrm;</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="adrozdov" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/readtheorg.css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/lib/js/jquery.stickytableheaders.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/js/readtheorg.js"></script>
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body>
+<div id="content">
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orge7f5436">1. Active Monitor</a>
+<ul>
+<li><a href="#org252d161">1.1. Initial Policy</a></li>
+<li><a href="#org07d8847">1.2. Policy Relearning</a></li>
+<li><a href="#orge82d004">1.3. Policy Refinement</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orge7f5436" class="outline-2">
+<h2 id="orge7f5436"><span class="section-number-2">1.</span> Active Monitor</h2>
+<div class="outline-text-2" id="text-1">
+
+<div id="orgb61dea8" class="figure">
+<p><img src="./images/active_monitor-1.png" alt="active_monitor-1.png" />
+</p>
+<p><span class="figure-number">Figure 1: </span>OLAPH active monitor integration for a <i>Book info</i> application. The image is adapted from the Istio service mesh documentation <a class='org-ref-reference' href="#bookinfo_application_2021">bookinfo_application_2021</a>.</p>
+</div>
+
+<p>
+In this chapter, the OLAPH user journey is demonstrated through learning access control policies for the <i>Product page</i> microservice in the <i>Book info</i> application, shown in Figure <a href="#orgb61dea8">1</a>, which is running in a Kubernetes cluster. The Open Policy Agent (OPA) policy engine is running in the same Kubernetes pod as the <i>Product page</i> service and it enforces access control policies on incoming requests using information from the Istio service mesh, as shown in Figure <a href="#org55ee979">2</a>. OLAPH collects requests logs from the <i>Product page</i> microservice and sends the learned policies back to OPA for enforcement. The user, who is the developer of the <i>Book info</i> application, monitors the policy differences that are produced from new interactions with the app and decides whether to enforce the currently learned policy, or to relearn it with adjustments to OLAPH's learning parameters.
+</p>
+
+
+<div id="org55ee979" class="figure">
+<p><img src="./images/opa_envoy.png" alt="opa_envoy.png" />
+</p>
+<p><span class="figure-number">Figure 2: </span>OPA Istio plugin architecture <a class='org-ref-reference' href="#OPA:Envoy-Plugin">OPA:Envoy-Plugin</a></p>
+</div>
+</div>
+
+<div id="outline-container-org252d161" class="outline-3">
+<h3 id="org252d161"><span class="section-number-3">1.1.</span> Initial Policy</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+OLAPH's configuration for this application is shown below in YAML format:
+</p>
+<pre class="example" id="org05fef21">
+max_attributes: 30
+max_buffer: 100
+window_size: 1
+g: 3
+k: 2
+c: 1
+decay: 0.9
+preferred_attributes:
+  - "request__method(M)"
+  - "request__body(B)"
+  - "parsed_path(I, P)"
+</pre>
+<p>
+The maximum number of attributes are set to 30 as a precautionary limit and the maximum long-term memory buffer size is set to a high enough number such that no requests are forgotten in the demonstration. Since this is an application with a low request volume, the window size was chosen to be 1 so that OLAPH is sensitive to individual request anomalies. The values of the generalisation parameters \(g\), \(k\) and \(c\) are chosen to encourage learning rules of a short length. The decay has a large value to collect a large amount of recent requests when relearning, and due to the small overall number of requests, some preferred attributes have been specified in ASP form. Frequency metadata has also been added to the rules, which shows the proportion of the learned examples that are allowed by each rule. The rules in the policy are sorted in descending order of frequency so that changes in the frequency are flagged in the policy differences in order to detect group anomalies.
+</p>
+
+<p>
+The first step is to learn an initial policy from the recent requests to the application, which is shown below (omitting the imports). Nobody has interacted with the application recently, so the only identified request in the policy is the Kubernetes health check, which is made at regular intervals to applications running in the cluster by Kubernetes node agents. The user is prompted to approve the policy, but they are not satisfied with the current policy, so they decide to wait for the next relearn before enforcing the policy.
+\pagebreak
+</p>
+<pre class="example" id="orgad8ae90">
+# frequency: 0
+default allow = false
+
+# frequency: 1.0
+allow {
+    parsed_path[0] = "health"
+    request.method = "GET"
+}  
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org07d8847" class="outline-3">
+<h3 id="org07d8847"><span class="section-number-3">1.2.</span> Policy Relearning</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+At this point, someone requests the <code>/productpage</code> path in the application, which triggers a relearn and OLAPH outputs the policy difference shown in Figure <a href="#org5360100">3</a>. The user sees that the application access has been represented in the policy, so they approve the new policy, which is sent to OPA for enforcement. The landing page of the application is now accessible, which is shown in Figure <a href="#orgc867e18">4</a>.
+</p>
+
+
+<div id="org5360100" class="figure">
+<p><img src="./images/mon_diff1.png" alt="mon_diff1.png" />
+</p>
+<p><span class="figure-number">Figure 3: </span><code>/productpage</code> access policy difference</p>
+</div>
+
+
+<div id="orgc867e18" class="figure">
+<p><img src="./images/bookinfo1.png" alt="bookinfo1.png" />
+</p>
+<p><span class="figure-number">Figure 4: </span><i>Book info</i> application landing page</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orge82d004" class="outline-3">
+<h3 id="orge82d004"><span class="section-number-3">1.3.</span> Policy Refinement</h3>
+<div class="outline-text-3" id="text-1-3">
+<p>
+Now the user wants to allow some access to the signed in functionality of the app. A <i>Book info</i> administrator, Alice, tries to log onto the app with her credentials, but is denied access by a <code>HTTP 403 Forbidden</code> response, since the <code>/login</code> path is not allowed in the policy. The denied request triggers another relearn, and results in the policy difference shown in Figure <a href="#org4a0bb9e">5</a>. 
+</p>
+
+
+<div id="org4a0bb9e" class="figure">
+<p><img src="./images/mon_diff2.png" alt="mon_diff2.png" />
+</p>
+<p><span class="figure-number">Figure 5: </span><code>/login</code> access policy difference</p>
+</div>
+
+<p>
+This one is too general for the user's liking, as they would only like Alice to have access, and not anyone who accesses the <code>/login</code> path. Therefore, they update the generalisation parameter \(g\) from 3 to 2 and relearn the policy, which results in the difference in Figure <a href="#org7edb460">6</a>. The relearned policy combines the first two rules into a more general rule that allows read-only access to the app, and a specialised rule for Alice to login to the app. The user now approves the policy for enforcement and Alice can sign into the app. The two approved relearns since the initial policy can be seen in the incoming requests distance graph, which converges to a confident final policy, as shown in Figure <a href="#org9736d74">7</a>.
+</p>
+
+
+<div id="org7edb460" class="figure">
+<p><img src="./images/mon_diff3.png" alt="mon_diff3.png" />
+</p>
+<p><span class="figure-number">Figure 6: </span><code>/login</code> access less general policy difference</p>
+</div>
+
+
+<div id="org9736d74" class="figure">
+<p><img src="./images/bookinfo_dist.png" alt="bookinfo_dist.png" />
+</p>
+<p><span class="figure-number">Figure 7: </span><i>Book info</i> app requests distance graph</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: adrozdov</p>
+<p class="date">Created: 2021-10-04 Mon 23:43</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
