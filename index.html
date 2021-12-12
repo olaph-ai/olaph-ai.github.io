@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-12-12 Sun 21:20 -->
+<!-- 2021-12-12 Sun 21:24 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Olaph Docs</title>
@@ -251,46 +251,46 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org39457ed">1. Active Monitor</a>
+<li><a href="#orgc6f28fd">1. Active Monitor</a>
 <ul>
-<li><a href="#org41ccb14">1.1. Initial Policy</a></li>
-<li><a href="#org9f82a2b">1.2. Policy Relearning</a></li>
-<li><a href="#org4ac3648">1.3. Policy Refinement</a></li>
+<li><a href="#org253a956">1.1. Initial Policy</a></li>
+<li><a href="#org4af198d">1.2. Policy Relearning</a></li>
+<li><a href="#org7272da4">1.3. Policy Refinement</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org39457ed" class="outline-2">
-<h2 id="org39457ed"><span class="section-number-2">1.</span> Active Monitor</h2>
+<div id="outline-container-orgc6f28fd" class="outline-2">
+<h2 id="orgc6f28fd"><span class="section-number-2">1.</span> Active Monitor</h2>
 <div class="outline-text-2" id="text-1">
 
-<div id="org7cceaae" class="figure">
+<div id="org0fdfa85" class="figure">
 <p><img src="./images/active_monitor-1.png" alt="active_monitor-1.png" />
 </p>
-<p><span class="figure-number">Figure 1: </span>OLAPH active monitor integration for a <i>Book info</i> application. The image is adapted from the Istio service mesh documentation <a href="bookinfo_application_2021">bookinfo_application_2021</a>.</p>
+<p><span class="figure-number">Figure 1: </span>OLAPH active monitor integration for a <i>Book info</i> application. The image is adapted from the Istio service mesh <a href="https://istio.io/latest/docs/examples/bookinfo/">documentation</a>.</p>
 </div>
 
 <p>
-In this demo, the OLAPH user journey is demonstrated through learning access control policies for the <i>Product page</i> microservice in the <i>Book info</i> application, shown in Figure <a href="#org7cceaae">1</a>, which is running in a Kubernetes cluster. The Open Policy Agent (OPA) policy engine is running in the same Kubernetes pod as the <i>Product page</i> service and it enforces access control policies on incoming requests using information from the Istio service mesh, as shown in Figure <a href="#orgebab2d9">2</a>. OLAPH collects requests logs from the <i>Product page</i> microservice and sends the learned policies back to OPA for enforcement. The user, who is the developer of the <i>Book info</i> application, monitors the policy differences that are produced from new interactions with the app and decides whether to enforce the currently learned policy, or to relearn it with adjustments to OLAPH's learning parameters.
+In this demo, the OLAPH user journey is demonstrated through learning access control policies for the <i>Product page</i> microservice in the <i>Book info</i> application, shown in Figure <a href="#org0fdfa85">1</a>, which is running in a Kubernetes cluster. The Open Policy Agent (OPA) policy engine is running in the same Kubernetes pod as the <i>Product page</i> service and it enforces access control policies on incoming requests using information from the Istio service mesh, as shown in Figure <a href="#orged14dfc">2</a>. OLAPH collects requests logs from the <i>Product page</i> microservice and sends the learned policies back to OPA for enforcement. The user, who is the developer of the <i>Book info</i> application, monitors the policy differences that are produced from new interactions with the app and decides whether to enforce the currently learned policy, or to relearn it with adjustments to OLAPH's learning parameters.
 </p>
 
 
-<div id="orgebab2d9" class="figure">
+<div id="orged14dfc" class="figure">
 <p><img src="./images/opa_envoy.png" alt="opa_envoy.png" />
 </p>
-<p><span class="figure-number">Figure 2: </span>OPA Istio plugin architecture <a href="OPA:Envoy-Plugin">OPA:Envoy-Plugin</a></p>
+<p><span class="figure-number">Figure 2: </span>OPA Istio plugin architecture (<a href="https://github.com/open-policy-agent/opa-envoy-plugin/tree/main/examples/istio">docs</a>)</p>
 </div>
 </div>
 
-<div id="outline-container-org41ccb14" class="outline-3">
-<h3 id="org41ccb14"><span class="section-number-3">1.1.</span> Initial Policy</h3>
+<div id="outline-container-org253a956" class="outline-3">
+<h3 id="org253a956"><span class="section-number-3">1.1.</span> Initial Policy</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 OLAPH's configuration for this application is shown below in YAML format:
 </p>
-<pre class="example" id="org3bcecc6">
+<pre class="example" id="orgcf49a66">
 max_attributes: 30
 max_buffer: 100
 window_size: 1
@@ -311,7 +311,7 @@ The maximum number of attributes are set to 30 as a precautionary limit and the 
 The first step is to learn an initial policy from the recent requests to the application, which is shown below (omitting the imports). Nobody has interacted with the application recently, so the only identified request in the policy is the Kubernetes health check, which is made at regular intervals to applications running in the cluster by Kubernetes node agents. The user is prompted to approve the policy, but they are not satisfied with the current policy, so they decide to wait for the next relearn before enforcing the policy.
 </p>
 
-<pre class="example" id="orgc9367ed">
+<pre class="example" id="org614cdc3">
 # frequency: 0
 default allow = false
 
@@ -324,22 +324,22 @@ allow {
 </div>
 </div>
 
-<div id="outline-container-org9f82a2b" class="outline-3">
-<h3 id="org9f82a2b"><span class="section-number-3">1.2.</span> Policy Relearning</h3>
+<div id="outline-container-org4af198d" class="outline-3">
+<h3 id="org4af198d"><span class="section-number-3">1.2.</span> Policy Relearning</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
-At this point, someone requests the <code>/productpage</code> path in the application, which triggers a relearn and OLAPH outputs the policy difference shown in Figure <a href="#orge53dcf7">3</a>. The user sees that the application access has been represented in the policy, so they approve the new policy, which is sent to OPA for enforcement. The landing page of the application is now accessible, which is shown in Figure <a href="#org0e6c8f2">4</a>.
+At this point, someone requests the <code>/productpage</code> path in the application, which triggers a relearn and OLAPH outputs the policy difference shown in Figure <a href="#orgeb0d941">3</a>. The user sees that the application access has been represented in the policy, so they approve the new policy, which is sent to OPA for enforcement. The landing page of the application is now accessible, which is shown in Figure <a href="#orgaac9804">4</a>.
 </p>
 
 
-<div id="orge53dcf7" class="figure">
+<div id="orgeb0d941" class="figure">
 <p><img src="./images/mon_diff1.png" alt="mon_diff1.png" />
 </p>
 <p><span class="figure-number">Figure 3: </span><code>/productpage</code> access policy difference</p>
 </div>
 
 
-<div id="org0e6c8f2" class="figure">
+<div id="orgaac9804" class="figure">
 <p><img src="./images/bookinfo1.png" alt="bookinfo1.png" />
 </p>
 <p><span class="figure-number">Figure 4: </span><i>Book info</i> application landing page</p>
@@ -347,33 +347,33 @@ At this point, someone requests the <code>/productpage</code> path in the applic
 </div>
 </div>
 
-<div id="outline-container-org4ac3648" class="outline-3">
-<h3 id="org4ac3648"><span class="section-number-3">1.3.</span> Policy Refinement</h3>
+<div id="outline-container-org7272da4" class="outline-3">
+<h3 id="org7272da4"><span class="section-number-3">1.3.</span> Policy Refinement</h3>
 <div class="outline-text-3" id="text-1-3">
 <p>
-Now the user wants to allow some access to the signed in functionality of the app. A <i>Book info</i> administrator, Alice, tries to log onto the app with her credentials, but is denied access by a <code>HTTP 403 Forbidden</code> response, since the <code>/login</code> path is not allowed in the policy. The denied request triggers another relearn, and results in the policy difference shown in Figure <a href="#org08d75c0">5</a>. 
+Now the user wants to allow some access to the signed in functionality of the app. A <i>Book info</i> administrator, Alice, tries to log onto the app with her credentials, but is denied access by a <code>HTTP 403 Forbidden</code> response, since the <code>/login</code> path is not allowed in the policy. The denied request triggers another relearn, and results in the policy difference shown in Figure <a href="#org12d7224">5</a>. 
 </p>
 
 
-<div id="org08d75c0" class="figure">
+<div id="org12d7224" class="figure">
 <p><img src="./images/mon_diff2.png" alt="mon_diff2.png" />
 </p>
 <p><span class="figure-number">Figure 5: </span><code>/login</code> access policy difference</p>
 </div>
 
 <p>
-This one is too general for the user's liking, as they would only like Alice to have access, and not anyone who accesses the <code>/login</code> path. Therefore, they update the generalisation parameter \(g\) from 3 to 2 and relearn the policy, which results in the difference in Figure <a href="#org74d485b">6</a>. The relearned policy combines the first two rules into a more general rule that allows read-only access to the app, and a specialised rule for Alice to login to the app. The user now approves the policy for enforcement and Alice can sign into the app. The two approved relearns since the initial policy can be seen in the incoming requests distance graph, which converges to a confident final policy, as shown in Figure <a href="#orgcd5a3f8">7</a>.
+This one is too general for the user's liking, as they would only like Alice to have access, and not anyone who accesses the <code>/login</code> path. Therefore, they update the generalisation parameter \(g\) from 3 to 2 and relearn the policy, which results in the difference in Figure <a href="#org2fa5677">6</a>. The relearned policy combines the first two rules into a more general rule that allows read-only access to the app, and a specialised rule for Alice to login to the app. The user now approves the policy for enforcement and Alice can sign into the app. The two approved relearns since the initial policy can be seen in the incoming requests distance graph, which converges to a confident final policy, as shown in Figure <a href="#orgda9181b">7</a>.
 </p>
 
 
-<div id="org74d485b" class="figure">
+<div id="org2fa5677" class="figure">
 <p><img src="./images/mon_diff3.png" alt="mon_diff3.png" />
 </p>
 <p><span class="figure-number">Figure 6: </span><code>/login</code> access less general policy difference</p>
 </div>
 
 
-<div id="orgcd5a3f8" class="figure">
+<div id="orgda9181b" class="figure">
 <p><img src="./images/bookinfo_dist.png" alt="bookinfo_dist.png" />
 </p>
 <p><span class="figure-number">Figure 7: </span><i>Book info</i> app requests distance graph</p>
@@ -384,7 +384,7 @@ This one is too general for the user's liking, as they would only like Alice to 
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Arthur Drozdov</p>
-<p class="date">Created: 2021-12-12 Sun 21:20</p>
+<p class="date">Created: 2021-12-12 Sun 21:24</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
